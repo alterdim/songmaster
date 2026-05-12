@@ -129,7 +129,7 @@
       </widget>
     </page>
   </SXmlObject>
-  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectID="DASHBOARD_SONG">
+  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectSEQ="3" SXmlObjectID="DASHBOARD_SONG">
     <repository>core</repository>
     <alias>Song</alias>
     <dataset>DATASET_SONG</dataset>
@@ -139,7 +139,7 @@
         <geometry>
           <x>0</x>
           <y>0</y>
-          <width>1</width>
+          <width>0.25</width>
           <height>1</height>
         </geometry>
         <view>
@@ -168,7 +168,56 @@
               <factor>EXPLICIT</factor>
               <factor>DURATION_MS</factor>
             </columnset>
-            <sort/>
+            <sort>
+              <sort>
+                <factor>POPULARITY</factor>
+                <descending>true</descending>
+              </sort>
+            </sort>
+          </SXmlObject>
+        </view>
+      </widget>
+      <widget>
+        <datasource>0f862f572f331d66e716dee1fa36e1bb</datasource>
+        <geometry>
+          <x>0.425</x>
+          <y>0.075</y>
+          <width>0.5</width>
+          <height>0.5</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="chart">
+            <xAxis>
+              <dimension>GENRE_ID_PTR_GENRE</dimension>
+              <type>category</type>
+            </xAxis>
+            <legend>
+              <layout>horizontal</layout>
+            </legend>
+            <series>
+              <value>
+                <type>pie</type>
+                <factor>SONG_ID</factor>
+                <function>COUNT</function>
+              </value>
+            </series>
+            <annotations>
+              <data><![CDATA[[
+  {
+    "labels": [
+      {
+        "point": {
+          "x": 1,
+          "y": 1
+        },
+        "text": "Some free text",
+        "backgroundColor": "darkgray",
+        "borderColor": "lightgray"
+      }
+    ]
+  }
+]]]></data>
+            </annotations>
           </SXmlObject>
         </view>
       </widget>
