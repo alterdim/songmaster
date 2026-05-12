@@ -1,0 +1,213 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_ARTIST">
+    <repository>core</repository>
+    <parentID>artist</parentID>
+    <defaultExpression>artist_id, artist_name</defaultExpression>
+    <data>SELECT 
+-- {% if select %}
+artist.*
+${REPLACE_ARTIST_SELECT}
+--
+
+--
+-- {% else %}
+-- artist.*
+	${REPLACE_ARTIST_SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`artist` artist
+--
+
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_ARTIST_GLOBALS">
+    <repository>core</repository>
+    <parentID>artist</parentID>
+    <glob>
+      <enabled>true</enabled>
+    </glob>
+    <defaultExpression>artist_id, artist_name</defaultExpression>
+    <data>SELECT 
+-- {% if select %}
+artist.*
+--	, artist.`artist_id`
+--	, artist.`artist_name`
+--
+
+--
+-- {% else %}
+-- artist.*
+	${SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`artist` artist
+--
+
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_ARTIST_SONG">
+    <repository>core</repository>
+    <parentID>artist_song</parentID>
+    <defaultExpression>artist_id, song_id, role</defaultExpression>
+    <data>-- [list of duplicated columns below]
+-- artist_id [artist_song,artist]
+-- song_id [artist_song,song]
+
+
+SELECT 
+-- {% if select %}
+artist_song.*
+${REPLACE_ARTIST_SONG_SELECT}
+--
+${REPLACE_ARTIST_JOIN(artist)}
+${REPLACE_SONG_JOIN(song)}
+--
+-- {% else %}
+-- artist_song.*
+	${REPLACE_ARTIST_SONG_SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`artist_song` artist_song
+--
+LEFT JOIN `${SCHEMA}`.`artist` artist ON (artist_song.`artist_id` = artist.`artist_id`)
+LEFT JOIN `${SCHEMA}`.`song` song ON (artist_song.`song_id` = song.`song_id`)
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_GENRE">
+    <repository>core</repository>
+    <parentID>genre</parentID>
+    <defaultExpression>genre_id, genre_name</defaultExpression>
+    <data>SELECT 
+-- {% if select %}
+genre.*
+${REPLACE_GENRE_SELECT}
+--
+
+--
+-- {% else %}
+-- genre.*
+	${REPLACE_GENRE_SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`genre` genre
+--
+
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_GENRE_GLOBALS">
+    <repository>core</repository>
+    <parentID>genre</parentID>
+    <glob>
+      <enabled>true</enabled>
+    </glob>
+    <defaultExpression>genre_id, genre_name</defaultExpression>
+    <data>SELECT 
+-- {% if select %}
+genre.*
+--	, genre.`genre_id`
+--	, genre.`genre_name`
+--
+
+--
+-- {% else %}
+-- genre.*
+	${SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`genre` genre
+--
+
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_SONG">
+    <repository>core</repository>
+    <parentID>song</parentID>
+    <defaultExpression>song_id, song_name, popularity, danceability, energy, musical_key, loudness, speechiness, acousticness, instrumentalness, liveness, valence, tempo, time_signature, explicit, duration_ms</defaultExpression>
+    <data>SELECT 
+-- {% if select %}
+song.*
+${REPLACE_SONG_SELECT}
+--
+
+--
+-- {% else %}
+-- song.*
+	${REPLACE_SONG_SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`song` song
+--
+
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="query" SXmlObjectID="QUERY_SONG_GENRE">
+    <repository>core</repository>
+    <parentID>song_genre</parentID>
+    <defaultExpression>song_id, genre_id</defaultExpression>
+    <data>-- [list of duplicated columns below]
+-- genre_id [song_genre,genre]
+-- song_id [song_genre,song]
+
+
+SELECT 
+-- {% if select %}
+song_genre.*
+${REPLACE_SONG_GENRE_SELECT}
+--
+${REPLACE_GENRE_JOIN(genre)}
+${REPLACE_SONG_JOIN(song)}
+--
+-- {% else %}
+-- song_genre.*
+	${REPLACE_SONG_GENRE_SELECT_REDUCED}
+--
+-- {% endif %}
+--
+FROM `${SCHEMA}`.`song_genre` song_genre
+--
+-- LEFT JOIN `${SCHEMA}`.`genre` genre ON (song_genre.`genre_id` = genre.`genre_id`)
+LEFT JOIN `${SCHEMA}`.`song` song ON (song_genre.`song_id` = song.`song_id`)
+--
+WHERE ${PARAMS}
+--
+AND ${CONTEXT}
+--
+LIMIT ${LIMIT}</data>
+  </SXmlObject>
+</storm>

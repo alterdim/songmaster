@@ -1,0 +1,57 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="list" SXmlObjectSEQ="1" SXmlObjectID="LIST_ARTIST_SONG">
+    <repository>core</repository>
+    <alias>Artist song</alias>
+    <parentID>DATASET_ARTIST_SONG</parentID>
+    <dataFilter><![CDATA[[
+    {
+        "compare": "is",
+        "expression": [
+            "main"
+        ],
+        "factor": "ROLE"
+    },
+    {
+    }
+]
+]]></dataFilter>
+    <columnset>
+      <factor>ARTIST_ID</factor>
+      <factor>SONG_ID</factor>
+      <factor>ROLE</factor>
+    </columnset>
+    <sort>
+      <sort>
+        <factor>SONG_ID</factor>
+      </sort>
+    </sort>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="list" SXmlObjectSEQ="1" SXmlObjectID="MAIN_ARTIST_TO_SONG">
+    <repository>core</repository>
+    <alias>Main Artist Song</alias>
+    <parentID>DATASET_ARTIST_SONG</parentID>
+    <owner>storm</owner>
+    <dataFilter><![CDATA[[
+    {
+        "compare": "is",
+        "expression": [
+            "main"
+        ],
+        "factor": "ROLE"
+    }
+]
+]]></dataFilter>
+    <columnset>
+      <factor>ARTIST_ID</factor>
+      <factor>ARTIST_ID_PTR_ARTIST</factor>
+      <factor>SONG_ID</factor>
+      <factor>SONG_NAME</factor>
+      <factor>ROLE</factor>
+    </columnset>
+    <sort>
+      <sort>
+        <factor>SONG_ID</factor>
+      </sort>
+    </sort>
+  </SXmlObject>
+</storm>

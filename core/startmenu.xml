@@ -1,0 +1,13 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="startmenu" SXmlObjectID="STARTMENU_START">
+    <repository>core</repository>
+    <node alias="A" SXmlObjectID="A">
+      <node dashboard="DASHBOARD_ARTIST"/>
+      <node dashboard="DASHBOARD_ARTIST_SONG"/>
+    </node>
+    <node alias="S" SXmlObjectID="S">
+      <node dashboard="DASHBOARD_SONG"/>
+      <node dashboard="DASHBOARD_SONG_GENRE"/>
+    </node>
+  </SXmlObject>
+</storm>

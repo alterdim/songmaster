@@ -1,0 +1,347 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectID="PARAMSET_ARTIST">
+    <repository>core</repository>
+    <alias>Artist</alias>
+    <parentID>DATASET_ARTIST</parentID>
+    <param>
+      <bind>artist.`artist_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`artist_id`
+FROM `${SCHEMA}`.`artist` artist
+ORDER BY `artist_id` LIMIT 30000</query>
+        <columnset>ARTIST_ID</columnset>
+        <factor>artist_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>artist.`artist_name`</bind>
+      <type>text</type>
+      <list>
+        <query>SELECT DISTINCT
+`artist_name`
+FROM `${SCHEMA}`.`artist` artist
+ORDER BY `artist_name` LIMIT 30000</query>
+        <columnset>ARTIST_NAME</columnset>
+        <factor>artist_name</factor>
+      </list>
+    </param>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectSEQ="4" SXmlObjectID="PARAMSET_ARTIST_SONG">
+    <repository>core</repository>
+    <alias>Artist song</alias>
+    <parentID>DATASET_ARTIST_SONG</parentID>
+    <param>
+      <bind>artist_song.`artist_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`artist_id`
+FROM `${SCHEMA}`.`artist_song` artist_song
+ORDER BY `artist_id` LIMIT 30000</query>
+        <columnset>ARTIST_ID</columnset>
+        <factor>artist_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>artist_song.`song_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`song_id`
+FROM `${SCHEMA}`.`artist_song` artist_song
+ORDER BY `song_id` LIMIT 30000</query>
+        <columnset>SONG_ID</columnset>
+        <factor>song_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>artist_song.`role`</bind>
+      <type>enum</type>
+      <flags>
+        <show>true</show>
+      </flags>
+      <list>
+        <query>SELECT DISTINCT
+`role`
+FROM `${SCHEMA}`.`artist_song` artist_song
+ORDER BY `role` LIMIT 30000</query>
+        <columnset>ROLE</columnset>
+        <factor>role</factor>
+      </list>
+      <defaultValue>main</defaultValue>
+    </param>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectID="PARAMSET_GENRE">
+    <repository>core</repository>
+    <alias>Genre</alias>
+    <parentID>DATASET_GENRE</parentID>
+    <param>
+      <bind>genre.`genre_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`genre_id`
+FROM `${SCHEMA}`.`genre` genre
+ORDER BY `genre_id` LIMIT 30000</query>
+        <columnset>GENRE_ID</columnset>
+        <factor>genre_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>genre.`genre_name`</bind>
+      <type>text</type>
+      <list>
+        <query>SELECT DISTINCT
+`genre_name`
+FROM `${SCHEMA}`.`genre` genre
+ORDER BY `genre_name` LIMIT 30000</query>
+        <columnset>GENRE_NAME</columnset>
+        <factor>genre_name</factor>
+      </list>
+    </param>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectID="PARAMSET_QUERY_LIMIT">
+    <repository>core</repository>
+    <param>
+      <bind>${LIMIT}</bind>
+      <type>integer</type>
+      <icon>fa/stop-circle/regular</icon>
+      <alias>Query limit</alias>
+      <flags>
+        <show>true</show>
+        <escaped>false</escaped>
+        <mandatory>true</mandatory>
+        <enableOperators>false</enableOperators>
+      </flags>
+      <defaultValue>3000</defaultValue>
+    </param>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectID="PARAMSET_SONG">
+    <repository>core</repository>
+    <alias>Song</alias>
+    <parentID>DATASET_SONG</parentID>
+    <param>
+      <bind>song.`song_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`song_id`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `song_id` LIMIT 30000</query>
+        <columnset>SONG_ID</columnset>
+        <factor>song_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`song_name`</bind>
+      <type>text</type>
+      <list>
+        <query>SELECT DISTINCT
+`song_name`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `song_name` LIMIT 30000</query>
+        <columnset>SONG_NAME</columnset>
+        <factor>song_name</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`popularity`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`popularity`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `popularity` LIMIT 30000</query>
+        <columnset>POPULARITY</columnset>
+        <factor>popularity</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`danceability`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`danceability`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `danceability` LIMIT 30000</query>
+        <columnset>DANCEABILITY</columnset>
+        <factor>danceability</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`energy`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`energy`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `energy` LIMIT 30000</query>
+        <columnset>ENERGY</columnset>
+        <factor>energy</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`musical_key`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`musical_key`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `musical_key` LIMIT 30000</query>
+        <columnset>MUSICAL_KEY</columnset>
+        <factor>musical_key</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`loudness`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`loudness`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `loudness` LIMIT 30000</query>
+        <columnset>LOUDNESS</columnset>
+        <factor>loudness</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`speechiness`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`speechiness`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `speechiness` LIMIT 30000</query>
+        <columnset>SPEECHINESS</columnset>
+        <factor>speechiness</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`acousticness`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`acousticness`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `acousticness` LIMIT 30000</query>
+        <columnset>ACOUSTICNESS</columnset>
+        <factor>acousticness</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`instrumentalness`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`instrumentalness`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `instrumentalness` LIMIT 30000</query>
+        <columnset>INSTRUMENTALNESS</columnset>
+        <factor>instrumentalness</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`liveness`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`liveness`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `liveness` LIMIT 30000</query>
+        <columnset>LIVENESS</columnset>
+        <factor>liveness</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`valence`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`valence`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `valence` LIMIT 30000</query>
+        <columnset>VALENCE</columnset>
+        <factor>valence</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`tempo`</bind>
+      <type>float</type>
+      <list>
+        <query>SELECT DISTINCT
+`tempo`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `tempo` LIMIT 30000</query>
+        <columnset>TEMPO</columnset>
+        <factor>tempo</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`time_signature`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`time_signature`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `time_signature` LIMIT 30000</query>
+        <columnset>TIME_SIGNATURE</columnset>
+        <factor>time_signature</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`explicit`</bind>
+      <type>tinyint</type>
+      <list>
+        <query>SELECT DISTINCT
+`explicit`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `explicit` LIMIT 30000</query>
+        <columnset>EXPLICIT</columnset>
+        <factor>explicit</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song.`duration_ms`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`duration_ms`
+FROM `${SCHEMA}`.`song` song
+ORDER BY `duration_ms` LIMIT 30000</query>
+        <columnset>DURATION_MS</columnset>
+        <factor>duration_ms</factor>
+      </list>
+    </param>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="paramset" SXmlObjectID="PARAMSET_SONG_GENRE">
+    <repository>core</repository>
+    <alias>Song genre</alias>
+    <parentID>DATASET_SONG_GENRE</parentID>
+    <param>
+      <bind>song_genre.`song_id`</bind>
+      <type>integer</type>
+      <list>
+        <query>SELECT DISTINCT
+`song_id`
+FROM `${SCHEMA}`.`song_genre` song_genre
+ORDER BY `song_id` LIMIT 30000</query>
+        <columnset>SONG_ID</columnset>
+        <factor>song_id</factor>
+      </list>
+    </param>
+    <param>
+      <bind>song_genre.`genre_id`</bind>
+      <type>integer</type>
+      <list enabled="true">
+        <query>SELECT DISTINCT
+`genre_id`
+FROM `${SCHEMA}`.`song_genre` song_genre
+ORDER BY `genre_id` LIMIT 30000</query>
+        <columnset><![CDATA[["GENRE_ID","GENRE_ID_PTR_GENRE"]]]></columnset>
+        <factor>genre_id</factor>
+      </list>
+    </param>
+  </SXmlObject>
+</storm>

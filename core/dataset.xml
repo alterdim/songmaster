@@ -1,0 +1,62 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="dataset" SXmlObjectID="DATASET_ARTIST">
+    <repository>core</repository>
+    <parentID>artist</parentID>
+    <defaultDashboard>DASHBOARD_ARTIST</defaultDashboard>
+    <queries>
+      <query>QUERY_ARTIST</query>
+    </queries>
+    <paramset><![CDATA[["PARAMSET_QUERY_LIMIT","PARAMSET_ARTIST"]]]></paramset>
+    <drilldown>
+      <UID>da72ab58584e94ccfddfa34eafdd666e</UID>
+      <dataset>DATASET_ARTIST_SONG</dataset>
+      <link>artist_id:artist_song.artist_id</link>
+    </drilldown>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dataset" SXmlObjectID="DATASET_ARTIST_SONG">
+    <repository>core</repository>
+    <parentID>artist_song</parentID>
+    <defaultDashboard>DASHBOARD_ARTIST_SONG</defaultDashboard>
+    <queries>
+      <query>QUERY_ARTIST_SONG</query>
+    </queries>
+    <paramset><![CDATA[["PARAMSET_QUERY_LIMIT","PARAMSET_ARTIST_SONG","PARAMSET_ARTIST","PARAMSET_SONG"]]]></paramset>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dataset" SXmlObjectID="DATASET_GENRE">
+    <repository>core</repository>
+    <parentID>genre</parentID>
+    <defaultDashboard>DASHBOARD_GENRE</defaultDashboard>
+    <queries>
+      <query>QUERY_GENRE</query>
+    </queries>
+    <paramset><![CDATA[["PARAMSET_QUERY_LIMIT","PARAMSET_GENRE"]]]></paramset>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dataset" SXmlObjectID="DATASET_SONG">
+    <repository>core</repository>
+    <parentID>song</parentID>
+    <defaultDashboard>DASHBOARD_SONG</defaultDashboard>
+    <queries>
+      <query>QUERY_SONG</query>
+    </queries>
+    <paramset><![CDATA[["PARAMSET_QUERY_LIMIT","PARAMSET_SONG"]]]></paramset>
+    <drilldown>
+      <UID>214e25581bcfefdc8c0c2968365ee5a3</UID>
+      <dataset>DATASET_ARTIST_SONG</dataset>
+      <link>song_id:artist_song.song_id</link>
+    </drilldown>
+    <drilldown>
+      <UID>0f862f572f331d66e716dee1fa36e1bb</UID>
+      <dataset>DATASET_SONG_GENRE</dataset>
+      <link>song_id:song_genre.song_id</link>
+    </drilldown>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dataset" SXmlObjectID="DATASET_SONG_GENRE">
+    <repository>core</repository>
+    <parentID>song_genre</parentID>
+    <defaultDashboard>DASHBOARD_SONG_GENRE</defaultDashboard>
+    <queries>
+      <query>QUERY_SONG_GENRE</query>
+    </queries>
+    <paramset><![CDATA[["PARAMSET_QUERY_LIMIT","PARAMSET_SONG_GENRE","PARAMSET_SONG"]]]></paramset>
+  </SXmlObject>
+</storm>

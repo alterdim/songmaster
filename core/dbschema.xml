@@ -1,0 +1,7 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="dbschema" SXmlObjectSEQ="2" SXmlObjectID="DBSCHEMA">
+    <repository>core</repository>
+    <globalTables>genre</globalTables>
+    <drilldown><![CDATA[["artist","artist_song","song","song_genre"]]]></drilldown>
+  </SXmlObject>
+</storm>

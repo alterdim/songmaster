@@ -1,0 +1,209 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectSEQ="2" SXmlObjectID="DASHBOARD_ARTIST">
+    <repository>core</repository>
+    <alias>Artist</alias>
+    <dataset>DATASET_ARTIST</dataset>
+    <page>
+      <alias>Page</alias>
+      <widget>
+        <geometry>
+          <x>0</x>
+          <y>0</y>
+          <width>0.2</width>
+          <height>1</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="list">
+            <dataFilter><![CDATA[[
+    {
+        "factor": ""
+    }
+]
+]]></dataFilter>
+            <columnset>
+              <factor>ARTIST_ID</factor>
+              <factor>ARTIST_NAME</factor>
+            </columnset>
+            <sort/>
+          </SXmlObject>
+        </view>
+      </widget>
+      <widget>
+        <datasource>da72ab58584e94ccfddfa34eafdd666e</datasource>
+        <geometry>
+          <x>0.4</x>
+          <y>0.025</y>
+          <width>0.375</width>
+          <height>0.9</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="chart">
+            <alias>Artist song</alias>
+            <dataFilter><![CDATA[[
+    {
+        "compare": "is",
+        "expression": [
+            "main"
+        ],
+        "factor": "ROLE"
+    }
+]
+]]></dataFilter>
+            <xAxis>
+              <dimension>ARTIST_ID_PTR_ARTIST</dimension>
+              <type>category</type>
+              <sort>total-down</sort>
+            </xAxis>
+            <legend>
+              <layout>horizontal</layout>
+            </legend>
+            <series>
+              <value>
+                <type>bar</type>
+                <factor>ARTIST_ID</factor>
+                <function>COUNT</function>
+                <colorByPoint>true</colorByPoint>
+              </value>
+            </series>
+            <annotations>
+              <data><![CDATA[[
+  {
+    "labels": [
+      {
+        "point": {
+          "x": 1,
+          "y": 1
+        },
+        "text": "Some free text",
+        "backgroundColor": "darkgray",
+        "borderColor": "lightgray"
+      }
+    ]
+  }
+]]]></data>
+            </annotations>
+          </SXmlObject>
+        </view>
+      </widget>
+      <widget>
+        <datasource>da72ab58584e94ccfddfa34eafdd666e</datasource>
+        <geometry>
+          <x>0.225</x>
+          <y>0.25</y>
+          <width>0.5</width>
+          <height>0.5</height>
+        </geometry>
+        <view>MAIN_ARTIST_TO_SONG</view>
+      </widget>
+    </page>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectSEQ="1" SXmlObjectID="DASHBOARD_ARTIST_SONG">
+    <repository>core</repository>
+    <alias>Artist song</alias>
+    <dataset>DATASET_ARTIST_SONG</dataset>
+    <page>
+      <alias>Page</alias>
+      <widget>
+        <geometry>
+          <x>0</x>
+          <y>0</y>
+          <width>1</width>
+          <height>1</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="list">
+            <dataFilter><![CDATA[[
+    {
+        "factor": ""
+    }
+]
+]]></dataFilter>
+            <columnset>
+              <factor>ARTIST_ID</factor>
+              <factor>SONG_ID</factor>
+              <factor>ROLE</factor>
+            </columnset>
+            <sort/>
+          </SXmlObject>
+        </view>
+      </widget>
+    </page>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectID="DASHBOARD_SONG">
+    <repository>core</repository>
+    <alias>Song</alias>
+    <dataset>DATASET_SONG</dataset>
+    <page>
+      <alias>Page</alias>
+      <widget>
+        <geometry>
+          <x>0</x>
+          <y>0</y>
+          <width>1</width>
+          <height>1</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="list">
+            <dataFilter><![CDATA[[
+    {
+        "factor": ""
+    }
+]
+]]></dataFilter>
+            <columnset>
+              <factor>SONG_ID</factor>
+              <factor>SONG_NAME</factor>
+              <factor>POPULARITY</factor>
+              <factor>DANCEABILITY</factor>
+              <factor>ENERGY</factor>
+              <factor>MUSICAL_KEY</factor>
+              <factor>LOUDNESS</factor>
+              <factor>SPEECHINESS</factor>
+              <factor>ACOUSTICNESS</factor>
+              <factor>INSTRUMENTALNESS</factor>
+              <factor>LIVENESS</factor>
+              <factor>VALENCE</factor>
+              <factor>TEMPO</factor>
+              <factor>TIME_SIGNATURE</factor>
+              <factor>EXPLICIT</factor>
+              <factor>DURATION_MS</factor>
+            </columnset>
+            <sort/>
+          </SXmlObject>
+        </view>
+      </widget>
+    </page>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="dashboard" SXmlObjectID="DASHBOARD_SONG_GENRE">
+    <repository>core</repository>
+    <alias>Song genre</alias>
+    <dataset>DATASET_SONG_GENRE</dataset>
+    <page>
+      <alias>Page</alias>
+      <widget>
+        <geometry>
+          <x>0</x>
+          <y>0</y>
+          <width>1</width>
+          <height>1</height>
+        </geometry>
+        <view>
+          <SXmlObject SXmlObjectTYPE="list">
+            <dataFilter><![CDATA[[
+    {
+        "factor": ""
+    }
+]
+]]></dataFilter>
+            <columnset>
+              <factor>SONG_ID</factor>
+              <factor>GENRE_ID</factor>
+              <factor>GENRE_ID_PTR_GENRE</factor>
+            </columnset>
+            <sort/>
+          </SXmlObject>
+        </view>
+      </widget>
+    </page>
+  </SXmlObject>
+</storm>

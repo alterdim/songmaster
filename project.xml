@@ -1,0 +1,28 @@
+<SXmlObject SXmlObjectTYPE="project" SXmlObjectSEQ="1" SXmlObjectID="SongMaster">
+  <data>
+    <repository>
+      <id>core</id>
+      <path>core</path>
+    </repository>
+    <repository>
+      <id>business</id>
+      <path>business</path>
+    </repository>
+  </data>
+  <login>
+    <enabled>true</enabled>
+    <user>storm</user>
+  </login>
+  <db>
+    <engine>mysql</engine>
+    <driver>QMYSQL</driver>
+    <host>192.168.1.178</host>
+    <port>33065</port>
+    <dsn>show_planner</dsn>
+    <schema>show_planner</schema>
+    <user>root</user>
+    <pass>/APc/8c7onW4AsRtXkKoSeuYXYuXwmAxQX6i/oZUQMKOT0eBj9y2TvGN+e4bgNXIyBZFHYl6hbk75TZGLA/2Mal8lkeOqT4wP/k5vnO5TnK403zyhc7XC7szAwm0tvHMwQBGDrOO0ZU3a6cFHTLU3kQNh45bRLxGdFIR9cymHNteIWqhjeAt/+KEpEAnQ0D+</pass>
+  </db>
+  <db/>
+  <db/>
+</SXmlObject>

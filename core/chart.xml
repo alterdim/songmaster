@@ -1,0 +1,40 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="chart" SXmlObjectSEQ="1" SXmlObjectID="CHART_ARTIST_SONG">
+    <repository>core</repository>
+    <alias>Artist song</alias>
+    <parentID>DATASET_ARTIST_SONG</parentID>
+    <xAxis>
+      <dimension>ARTIST_ID_PTR_ARTIST</dimension>
+      <type>category</type>
+      <sort>total</sort>
+    </xAxis>
+    <legend>
+      <layout>horizontal</layout>
+    </legend>
+    <series>
+      <value>
+        <type>column</type>
+        <factor>ARTIST_ID</factor>
+        <function>SUM</function>
+        <colorByPoint>true</colorByPoint>
+      </value>
+    </series>
+    <annotations>
+      <data><![CDATA[[
+  {
+    "labels": [
+      {
+        "point": {
+          "x": 1,
+          "y": 1
+        },
+        "text": "Some free text",
+        "backgroundColor": "darkgray",
+        "borderColor": "lightgray"
+      }
+    ]
+  }
+]]]></data>
+    </annotations>
+  </SXmlObject>
+</storm>

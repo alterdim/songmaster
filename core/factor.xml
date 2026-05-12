@@ -1,0 +1,222 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ACOUSTICNESS">
+    <repository>core</repository>
+    <alias>Acousticness</alias>
+    <domain>song</domain>
+    <parentID>acousticness</parentID>
+    <description>song</description>
+    <expression>acousticness</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ARTIST_ID">
+    <repository>core</repository>
+    <alias>Artist id</alias>
+    <parentID>artist_id</parentID>
+    <description>artist artist_song</description>
+    <expression>artist_id</expression>
+    <options>
+      <style>STYLE_PK</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ARTIST_ID_PTR_ARTIST">
+    <repository>core</repository>
+    <alias><![CDATA[Artist id -> Artist]]></alias>
+    <parentID><![CDATA[artist_song(artist_id) -> artist(artist_id)]]></parentID>
+    <description>artist artist_song</description>
+    <expression>artist_id, artist_name</expression>
+    <pointer enabled="true">
+      <datasource>QUERY_ARTIST_GLOBALS</datasource>
+      <link>artist_id:artist_id</link>
+    </pointer>
+    <options>
+      <style>STYLE_POINTER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ARTIST_NAME">
+    <repository>core</repository>
+    <alias>Artist name</alias>
+    <domain>artist</domain>
+    <parentID>artist_name</parentID>
+    <description>artist</description>
+    <expression>artist_name</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="DANCEABILITY">
+    <repository>core</repository>
+    <alias>Danceability</alias>
+    <domain>song</domain>
+    <parentID>danceability</parentID>
+    <description>song</description>
+    <expression>danceability</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="DURATION_MS">
+    <repository>core</repository>
+    <alias>Duration ms</alias>
+    <domain>song</domain>
+    <parentID>duration_ms</parentID>
+    <description>song</description>
+    <expression>duration_ms</expression>
+    <options>
+      <style>STYLE_INTEGER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ENERGY">
+    <repository>core</repository>
+    <alias>Energy</alias>
+    <domain>song</domain>
+    <parentID>energy</parentID>
+    <description>song</description>
+    <expression>energy</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="EXPLICIT">
+    <repository>core</repository>
+    <alias>Explicit</alias>
+    <domain>song</domain>
+    <parentID>explicit</parentID>
+    <description>song</description>
+    <expression>explicit</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="GENRE_ID">
+    <repository>core</repository>
+    <alias>Genre id</alias>
+    <parentID>genre_id</parentID>
+    <description>genre song_genre</description>
+    <expression>genre_id</expression>
+    <options>
+      <style>STYLE_PK</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="GENRE_ID_PTR_GENRE">
+    <repository>core</repository>
+    <alias><![CDATA[Genre id -> Genre]]></alias>
+    <parentID><![CDATA[song_genre(genre_id) -> genre(genre_id)]]></parentID>
+    <description>genre song_genre</description>
+    <expression>genre_id, genre_name</expression>
+    <pointer enabled="true">
+      <datasource>QUERY_GENRE_GLOBALS</datasource>
+      <link>genre_id:genre_id</link>
+    </pointer>
+    <options>
+      <style>STYLE_POINTER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="GENRE_NAME">
+    <repository>core</repository>
+    <alias>Genre name</alias>
+    <domain>genre</domain>
+    <parentID>genre_name</parentID>
+    <description>genre</description>
+    <expression>genre_name</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="INSTRUMENTALNESS">
+    <repository>core</repository>
+    <alias>Instrumentalness</alias>
+    <domain>song</domain>
+    <parentID>instrumentalness</parentID>
+    <description>song</description>
+    <expression>instrumentalness</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="LIVENESS">
+    <repository>core</repository>
+    <alias>Liveness</alias>
+    <domain>song</domain>
+    <parentID>liveness</parentID>
+    <description>song</description>
+    <expression>liveness</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="LOUDNESS">
+    <repository>core</repository>
+    <alias>Loudness</alias>
+    <domain>song</domain>
+    <parentID>loudness</parentID>
+    <description>song</description>
+    <expression>loudness</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="MUSICAL_KEY">
+    <repository>core</repository>
+    <alias>Musical key</alias>
+    <domain>song</domain>
+    <parentID>musical_key</parentID>
+    <description>song</description>
+    <expression>musical_key</expression>
+    <options>
+      <style>STYLE_INTEGER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="POPULARITY">
+    <repository>core</repository>
+    <alias>Popularity</alias>
+    <domain>song</domain>
+    <parentID>popularity</parentID>
+    <description>song</description>
+    <expression>popularity</expression>
+    <options>
+      <style>STYLE_INTEGER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="ROLE">
+    <repository>core</repository>
+    <alias>Role</alias>
+    <domain>artist_song</domain>
+    <parentID>role</parentID>
+    <description>artist_song</description>
+    <expression>role</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="SONG_ID">
+    <repository>core</repository>
+    <alias>Song id</alias>
+    <parentID>song_id</parentID>
+    <description>artist_song song song_genre</description>
+    <expression>song_id</expression>
+    <options>
+      <style>STYLE_PK</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="SONG_NAME">
+    <repository>core</repository>
+    <alias>Song name</alias>
+    <domain>song</domain>
+    <parentID>song_name</parentID>
+    <description>song</description>
+    <expression>song_name</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="SPEECHINESS">
+    <repository>core</repository>
+    <alias>Speechiness</alias>
+    <domain>song</domain>
+    <parentID>speechiness</parentID>
+    <description>song</description>
+    <expression>speechiness</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="TEMPO">
+    <repository>core</repository>
+    <alias>Tempo</alias>
+    <domain>song</domain>
+    <parentID>tempo</parentID>
+    <description>song</description>
+    <expression>tempo</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="TIME_SIGNATURE">
+    <repository>core</repository>
+    <alias>Time signature</alias>
+    <domain>song</domain>
+    <parentID>time_signature</parentID>
+    <description>song</description>
+    <expression>time_signature</expression>
+    <options>
+      <style>STYLE_INTEGER</style>
+    </options>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="VALENCE">
+    <repository>core</repository>
+    <alias>Valence</alias>
+    <domain>song</domain>
+    <parentID>valence</parentID>
+    <description>song</description>
+    <expression>valence</expression>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="factor" SXmlObjectID="SELECT_ARTIST_SONG_ID_WHERE_ROLE_MAIN">
+    <repository>core</repository>
+    <alias><![CDATA[Select Artist, Song id Where Role == "Main"]]></alias>
+    <owner>storm</owner>
+    <expression><![CDATA[SELECT Artist, Song_id WHERE Role == "main"]]></expression>
+  </SXmlObject>
+</storm>

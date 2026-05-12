@@ -1,0 +1,109 @@
+<storm>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_ARTIST_JOIN">
+    <repository>core</repository>
+    <parentID><![CDATA[artist_song(artist_id) -> artist(artist_id)]]></parentID>
+    <value>-- , %1.*
+--	, %1.`artist_id` -- AS `%1_artist_id`
+--	, %1.`artist_name` -- AS `%1_artist_name`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_ARTIST_SELECT">
+    <repository>core</repository>
+    <parentID>artist</parentID>
+    <value>--	, artist.`artist_id`
+--	, artist.`artist_name`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_ARTIST_SELECT_REDUCED">
+    <repository>core</repository>
+    <parentID>artist</parentID>
+    <value>artist.`artist_id`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_ARTIST_SONG_SELECT">
+    <repository>core</repository>
+    <parentID>artist_song</parentID>
+    <value>--	, artist_song.`artist_id`
+--	, artist_song.`song_id`
+--	, artist_song.`role`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_ARTIST_SONG_SELECT_REDUCED">
+    <repository>core</repository>
+    <parentID>artist_song</parentID>
+    <value>artist_song.`artist_id`
+	, artist_song.`song_id`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_GENRE_JOIN">
+    <repository>core</repository>
+    <parentID><![CDATA[song_genre(genre_id) -> genre(genre_id)]]></parentID>
+    <value>-- , %1.*
+--	, %1.`genre_id` -- AS `%1_genre_id`
+--	, %1.`genre_name` -- AS `%1_genre_name`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_GENRE_SELECT">
+    <repository>core</repository>
+    <parentID>genre</parentID>
+    <value>--	, genre.`genre_id`
+--	, genre.`genre_name`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_GENRE_SELECT_REDUCED">
+    <repository>core</repository>
+    <parentID>genre</parentID>
+    <value>genre.`genre_id`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_SONG_GENRE_SELECT">
+    <repository>core</repository>
+    <parentID>song_genre</parentID>
+    <value>--	, song_genre.`song_id`
+--	, song_genre.`genre_id`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_SONG_GENRE_SELECT_REDUCED">
+    <repository>core</repository>
+    <parentID>song_genre</parentID>
+    <value>song_genre.`song_id`
+	, song_genre.`genre_id`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectSEQ="1" SXmlObjectID="REPLACE_SONG_JOIN">
+    <repository>core</repository>
+    <parentID><![CDATA[song_genre(song_id) -> song(song_id)]]></parentID>
+    <value>-- , %1.*
+--	, %1.`song_id` -- AS `%1_song_id`
+	, %1.`song_name` -- AS `%1_song_name`
+--	, %1.`popularity` -- AS `%1_popularity`
+--	, %1.`danceability` -- AS `%1_danceability`
+--	, %1.`energy` -- AS `%1_energy`
+--	, %1.`musical_key` -- AS `%1_musical_key`
+--	, %1.`loudness` -- AS `%1_loudness`
+--	, %1.`speechiness` -- AS `%1_speechiness`
+--	, %1.`acousticness` -- AS `%1_acousticness`
+--	, %1.`instrumentalness` -- AS `%1_instrumentalness`
+--	, %1.`liveness` -- AS `%1_liveness`
+--	, %1.`valence` -- AS `%1_valence`
+--	, %1.`tempo` -- AS `%1_tempo`
+--	, %1.`time_signature` -- AS `%1_time_signature`
+--	, %1.`explicit` -- AS `%1_explicit`
+--	, %1.`duration_ms` -- AS `%1_duration_ms`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_SONG_SELECT">
+    <repository>core</repository>
+    <parentID>song</parentID>
+    <value>--	, song.`song_id`
+--	, song.`song_name`
+--	, song.`popularity`
+--	, song.`danceability`
+--	, song.`energy`
+--	, song.`musical_key`
+--	, song.`loudness`
+--	, song.`speechiness`
+--	, song.`acousticness`
+--	, song.`instrumentalness`
+--	, song.`liveness`
+--	, song.`valence`
+--	, song.`tempo`
+--	, song.`time_signature`
+--	, song.`explicit`
+--	, song.`duration_ms`</value>
+  </SXmlObject>
+  <SXmlObject SXmlObjectTYPE="replace" SXmlObjectID="REPLACE_SONG_SELECT_REDUCED">
+    <repository>core</repository>
+    <parentID>song</parentID>
+    <value>song.`song_id`</value>
+  </SXmlObject>
+</storm>
